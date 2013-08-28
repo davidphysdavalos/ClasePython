@@ -1,0 +1,133 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      3896,        123]
+NotebookOptionsPosition[      3267,         95]
+NotebookOutlinePosition[      3604,        110]
+CellTagsIndexPosition[      3561,        107]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"NIntegrate", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Cos", "[", 
+     RowBox[{
+      RowBox[{"Log", "[", "x", "]"}], "/", "x"}], "]"}], "/", "x"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"WorkingPrecision", "\[Rule]", "10"}], ",", 
+   RowBox[{"PrecisionGoal", "\[Rule]", "10"}], ",", 
+   RowBox[{"MaxRecursion", "\[Rule]", "40"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.58670454260289*^9, 3.586704596989016*^9}, {
+  3.586706849022194*^9, 3.586706902574657*^9}, {3.5867069538860607`*^9, 
+  3.586706969949504*^9}, {3.586707089910548*^9, 3.586707158765697*^9}, {
+  3.586707193644878*^9, 3.586707195709023*^9}, {3.586707238476716*^9, 
+  3.586707270972818*^9}, {3.586708730131233*^9, 3.586708825074131*^9}, {
+  3.58670890872931*^9, 3.586708933885199*^9}, {3.586708987533574*^9, 
+  3.586708991405648*^9}, {3.5867090859172153`*^9, 3.586709105292473*^9}}],
+
+Cell[BoxData["0.32336743167778312411809528487093040921`10."], "Output",
+ CellChangeTimes->{
+  3.586704598491131*^9, {3.586706854866028*^9, 3.586706903194504*^9}, {
+   3.586706954310526*^9, 3.586706958279354*^9}, 3.58670709339793*^9, {
+   3.586707124086878*^9, 3.586707150089788*^9}, 3.586707187909821*^9, {
+   3.5867072356461163`*^9, 3.586707271223023*^9}, {3.586708735853904*^9, 
+   3.586708742283235*^9}, {3.586708773442047*^9, 3.586708815473402*^9}, {
+   3.586708906052702*^9, 3.5867089343582087`*^9}, 3.586708992322331*^9, {
+   3.586709091686384*^9, 3.5867091067730703`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"NIntegrate", "[", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"Cos", "[", 
+     FractionBox[
+      RowBox[{"Log", "[", "x", "]"}], "x"], "]"}], "x"], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5867069217285748`*^9, 3.5867069238526907`*^9}},
+ NumberMarks->False],
+
+Cell[BoxData["0.32336742957672554`"], "Output",
+ CellChangeTimes->{{3.5867069163384438`*^9, 3.586706924450821*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Precision", "[", "0.32336742957672554`", "]"}]], "Input",
+ NumberMarks->False],
+
+Cell[BoxData["MachinePrecision"], "Output",
+ CellChangeTimes->{3.586706928250586*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"N", "[", 
+  RowBox[{"MachinePrecision", ",", "100"}], "]"}]], "Input",
+ CellChangeTimes->{3.586706947757032*^9},
+ NumberMarks->False],
+
+Cell[BoxData["15.\
+954589770191003346328161420398130418714063717491752689452655439736734031544499\
+00280714436226386711815627337473458606301789573899506357`100."], "Output",
+ CellChangeTimes->{{3.586706941385879*^9, 3.5867069481082907`*^9}}]
+}, Open  ]]
+},
+WindowSize->{740, 705},
+WindowMargins->{{Automatic, -9}, {-9, Automatic}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 922, 18, 55, "Input"],
+Cell[1504, 42, 579, 8, 65, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2120, 55, 348, 10, 69, "Input"],
+Cell[2471, 67, 115, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2623, 73, 102, 2, 32, "Input"],
+Cell[2728, 77, 85, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2850, 83, 157, 4, 32, "Input"],
+Cell[3010, 89, 241, 3, 55, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
