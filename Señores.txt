@@ -1,4 +1,0 @@
-Hola señores
-
-
-prueba 1 de uso de git
