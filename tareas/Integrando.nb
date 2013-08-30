@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      3896,        123]
-NotebookOptionsPosition[      3267,         95]
-NotebookOutlinePosition[      3604,        110]
-CellTagsIndexPosition[      3561,        107]
+NotebookDataLength[      3983,        125]
+NotebookOptionsPosition[      3355,         97]
+NotebookOutlinePosition[      3691,        112]
+CellTagsIndexPosition[      3648,        109]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -38,9 +38,10 @@ Cell[BoxData[
   3.586707193644878*^9, 3.586707195709023*^9}, {3.586707238476716*^9, 
   3.586707270972818*^9}, {3.586708730131233*^9, 3.586708825074131*^9}, {
   3.58670890872931*^9, 3.586708933885199*^9}, {3.586708987533574*^9, 
-  3.586708991405648*^9}, {3.5867090859172153`*^9, 3.586709105292473*^9}}],
+  3.586708991405648*^9}, {3.5867090859172153`*^9, 3.586709105292473*^9}, {
+  3.586825228981049*^9, 3.586825243608254*^9}}],
 
-Cell[BoxData["0.32336743167778312411809528487093040921`10."], "Output",
+Cell[BoxData["0.3233674316808232046678537089`10."], "Output",
  CellChangeTimes->{
   3.586704598491131*^9, {3.586706854866028*^9, 3.586706903194504*^9}, {
    3.586706954310526*^9, 3.586706958279354*^9}, 3.58670709339793*^9, {
@@ -48,7 +49,8 @@ Cell[BoxData["0.32336743167778312411809528487093040921`10."], "Output",
    3.5867072356461163`*^9, 3.586707271223023*^9}, {3.586708735853904*^9, 
    3.586708742283235*^9}, {3.586708773442047*^9, 3.586708815473402*^9}, {
    3.586708906052702*^9, 3.5867089343582087`*^9}, 3.586708992322331*^9, {
-   3.586709091686384*^9, 3.5867091067730703`*^9}}]
+   3.586709091686384*^9, 3.5867091067730703`*^9}, {3.586825234851994*^9, 
+   3.58682524658284*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -93,9 +95,9 @@ Cell[BoxData["15.\
  CellChangeTimes->{{3.586706941385879*^9, 3.5867069481082907`*^9}}]
 }, Open  ]]
 },
-WindowSize->{740, 705},
-WindowMargins->{{Automatic, -9}, {-9, Automatic}},
-FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
+WindowSize->{1280, 714},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Linux x86 (32-bit) (November 20, 2012)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -110,24 +112,23 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 922, 18, 55, "Input"],
-Cell[1504, 42, 579, 8, 65, "Output"]
+Cell[579, 22, 971, 19, 32, "Input"],
+Cell[1553, 43, 618, 9, 65, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2120, 55, 348, 10, 69, "Input"],
-Cell[2471, 67, 115, 1, 32, "Output"]
+Cell[2208, 57, 348, 10, 69, "Input"],
+Cell[2559, 69, 115, 1, 32, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2623, 73, 102, 2, 32, "Input"],
-Cell[2728, 77, 85, 1, 32, "Output"]
+Cell[2711, 75, 102, 2, 32, "Input"],
+Cell[2816, 79, 85, 1, 32, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2850, 83, 157, 4, 32, "Input"],
-Cell[3010, 89, 241, 3, 55, "Output"]
+Cell[2938, 85, 157, 4, 32, "Input"],
+Cell[3098, 91, 241, 3, 32, "Output"]
 }, Open  ]]
 }
 ]
 *)
 
 (* End of internal cache information *)
-
