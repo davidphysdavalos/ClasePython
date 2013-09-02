@@ -1,0 +1,637 @@
+{
+ "metadata": {
+  "name": ""
+ },
+ "nbformat": 3,
+ "nbformat_minor": 0,
+ "worksheets": [
+  {
+   "cells": [
+    {
+     "cell_type": "heading",
+     "level": 1,
+     "metadata": {},
+     "source": [
+      "Excepciones"
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "def reciproco(x):\n",
+      "    if x==0:\n",
+      "        print \"La est\u00e1s regando\"\n",
+      "    else:\n",
+      "            return 1./x"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 4
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "reciproco(3)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 5,
+       "text": [
+        "0.3333333333333333"
+       ]
+      }
+     ],
+     "prompt_number": 5
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "reciproco(0)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "La est\u00e1s regando\n"
+       ]
+      }
+     ],
+     "prompt_number": 6
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "reciproco(1e-400)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "La est\u00e1s regando\n"
+       ]
+      }
+     ],
+     "prompt_number": 7
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "def reciproco(x):\n",
+      "    try:\n",
+      "        return 1./x\n",
+      "    except:\n",
+      "        print \"La est\u00e1s regando\""
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 8
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "reciproco(0)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "La est\u00e1s regando\n"
+       ]
+      }
+     ],
+     "prompt_number": 9
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "reciproco(\"Hola\")"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "La est\u00e1s regando\n"
+       ]
+      }
+     ],
+     "prompt_number": 10
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "Este error es de otro tipo, entonces deber\u00edamos distinguirlos"
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "def reciproco(x):\n",
+      "    try:\n",
+      "        return 1./x\n",
+      "    except:\n",
+      "        print \"Dividiendo entre cero\""
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 11
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "reciproco(0)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Dividiendo entre cero\n"
+       ]
+      }
+     ],
+     "prompt_number": 12
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "reciproco(\"hola\")"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Dividiendo entre cero\n"
+       ]
+      }
+     ],
+     "prompt_number": 13
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "def reciproco(x):\n",
+      "    try:\n",
+      "        return 1./x\n",
+      "    except ZeroDivisionError:\n",
+      "        print \"Dividiendo entre cero\""
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 18
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "reciproco(0)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Dividiendo entre cero\n"
+       ]
+      }
+     ],
+     "prompt_number": 19
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "reciproco(\"hola\")"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "ename": "TypeError",
+       "evalue": "unsupported operand type(s) for /: 'float' and 'str'",
+       "output_type": "pyerr",
+       "traceback": [
+        "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+        "\u001b[1;32m<ipython-input-20-47282c8a47ed>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m()\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0mreciproco\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"hola\"\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
+        "\u001b[1;32m<ipython-input-18-1fe61809113f>\u001b[0m in \u001b[0;36mreciproco\u001b[1;34m(x)\u001b[0m\n\u001b[0;32m      1\u001b[0m \u001b[1;32mdef\u001b[0m \u001b[0mreciproco\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mx\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      2\u001b[0m     \u001b[1;32mtry\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m----> 3\u001b[1;33m         \u001b[1;32mreturn\u001b[0m \u001b[1;36m1.\u001b[0m\u001b[1;33m/\u001b[0m\u001b[0mx\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m      4\u001b[0m     \u001b[1;32mexcept\u001b[0m \u001b[0mZeroDivisionError\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      5\u001b[0m         \u001b[1;32mprint\u001b[0m \u001b[1;34m\"Dividiendo entre cero\"\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+        "\u001b[1;31mTypeError\u001b[0m: unsupported operand type(s) for /: 'float' and 'str'"
+       ]
+      }
+     ],
+     "prompt_number": 20
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "raise ZeroDivisionError"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "ename": "ZeroDivisionError",
+       "evalue": "",
+       "output_type": "pyerr",
+       "traceback": [
+        "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mZeroDivisionError\u001b[0m                         Traceback (most recent call last)",
+        "\u001b[1;32m<ipython-input-21-2e97f6491c44>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m()\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[1;32mraise\u001b[0m \u001b[0mZeroDivisionError\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
+        "\u001b[1;31mZeroDivisionError\u001b[0m: "
+       ]
+      }
+     ],
+     "prompt_number": 21
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "ZeroDivisionError?"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 22
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "ZeroDivisionError??"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 23
+    },
+    {
+     "cell_type": "heading",
+     "level": 1,
+     "metadata": {},
+     "source": [
+      "Tests (pruebas)"
+     ]
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "En python \"nose\" (huele el c\u00f3digo para ver donde hay pruebas)."
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "from intervalo import *"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 26
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "i=Intervalo(3,4)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 27
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "i+3"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "latex": [
+        "$[6,7]$"
+       ],
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 28,
+       "text": [
+        "Intervalo(6, 7)"
+       ]
+      }
+     ],
+     "prompt_number": 28
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "j=Intervalo(-9,8)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 29
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "i+j"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "latex": [
+        "$[-6,12]$"
+       ],
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 30,
+       "text": [
+        "Intervalo(-6, 12)"
+       ]
+      }
+     ],
+     "prompt_number": 30
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "3*i"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "ename": "TypeError",
+       "evalue": "unsupported operand type(s) for *: 'int' and 'Intervalo'",
+       "output_type": "pyerr",
+       "traceback": [
+        "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+        "\u001b[1;32m<ipython-input-31-892579bb14f3>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m()\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[1;36m3\u001b[0m\u001b[1;33m*\u001b[0m\u001b[0mi\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
+        "\u001b[1;31mTypeError\u001b[0m: unsupported operand type(s) for *: 'int' and 'Intervalo'"
+       ]
+      }
+     ],
+     "prompt_number": 31
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "3.0*i"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "ename": "TypeError",
+       "evalue": "unsupported operand type(s) for *: 'float' and 'Intervalo'",
+       "output_type": "pyerr",
+       "traceback": [
+        "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+        "\u001b[1;32m<ipython-input-32-12afd38ec679>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m()\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[1;36m3.0\u001b[0m\u001b[1;33m*\u001b[0m\u001b[0mi\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
+        "\u001b[1;31mTypeError\u001b[0m: unsupported operand type(s) for *: 'float' and 'Intervalo'"
+       ]
+      }
+     ],
+     "prompt_number": 32
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "def test_adicion():\n",
+      "    a=Intervalo(1,2)\n",
+      "    b=Intervalo(2,3)\n",
+      "    \n",
+      "    c=a+b\n",
+      "    \n",
+      "    #checar que c est\u00e1 bien:\n",
+      "    \n",
+      "    assert c.lo==3 and c.hi==5"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 50
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "test_adicion"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 48,
+       "text": [
+        "<function __main__.test_adicion>"
+       ]
+      }
+     ],
+     "prompt_number": 48
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "i.lo"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 39,
+       "text": [
+        "3"
+       ]
+      }
+     ],
+     "prompt_number": 39
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "i.hi"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 40,
+       "text": [
+        "4"
+       ]
+      }
+     ],
+     "prompt_number": 40
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "j.lo"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 42,
+       "text": [
+        "-9"
+       ]
+      }
+     ],
+     "prompt_number": 42
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "Intervalo.__dict__"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 51,
+       "text": [
+        "<dictproxy {'__add__': <function intervalo.__add__>,\n",
+        " '__dict__': <attribute '__dict__' of 'Intervalo' objects>,\n",
+        " '__div__': <function intervalo.__div__>,\n",
+        " '__doc__': None,\n",
+        " '__eq__': <function intervalo.__eq__>,\n",
+        " '__ge__': <function intervalo.__ge__>,\n",
+        " '__gt__': <function intervalo.__gt__>,\n",
+        " '__init__': <function intervalo.__init__>,\n",
+        " '__le__': <function intervalo.__le__>,\n",
+        " '__lt__': <function intervalo.__lt__>,\n",
+        " '__module__': 'intervalo',\n",
+        " '__mul__': <function intervalo.__mul__>,\n",
+        " '__ne__': <function intervalo.__ne__>,\n",
+        " '__neg__': <function intervalo.__neg__>,\n",
+        " '__radd__': <function intervalo.__radd__>,\n",
+        " '__repr__': <function intervalo.__repr__>,\n",
+        " '__str__': <function intervalo.__str__>,\n",
+        " '__sub__': <function intervalo.__sub__>,\n",
+        " '__weakref__': <attribute '__weakref__' of 'Intervalo' objects>,\n",
+        " '_repr_latex_': <function intervalo._repr_latex_>,\n",
+        " 'hull': <function intervalo.hull>,\n",
+        " 'intersect': <function intervalo.intersect>,\n",
+        " 'union': <function intervalo.union>}>"
+       ]
+      }
+     ],
+     "prompt_number": 51
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s=\"holoido\"\n",
+      "s.replace(\"lo\",\"min\")"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 54,
+       "text": [
+        "'hominido'"
+       ]
+      }
+     ],
+     "prompt_number": 54
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 55,
+       "text": [
+        "'holoido'"
+       ]
+      }
+     ],
+     "prompt_number": 55
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [],
+     "language": "python",
+     "metadata": {},
+     "outputs": []
+    }
+   ],
+   "metadata": {}
+  }
+ ]
+}
