@@ -70,11 +70,10 @@ class Intervalo(object):
     def __div__(self, otro):
         
         inf = float("infinity")
-        
+        otro  = Intervalo(otro)
+
         if (otro.hi < 0)  or (otro.lo > 0):
-            print 1.0/otro.hi, 1.0/otro.lo
             recip = Intervalo(1.0/otro.hi, 1.0/otro.lo)
-            print recip
             return self*recip
         
         else:
