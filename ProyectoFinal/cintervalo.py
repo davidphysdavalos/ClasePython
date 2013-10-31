@@ -1,7 +1,9 @@
 from intervalo import *
 
 class CIntervalo(object):
-    
+    '''
+    Clase auxiliar en la construccion de intervalos complejos
+    '''
     def __init__(self, re, im=None):
         
         if im is None:
@@ -77,7 +79,9 @@ class CIntervalo(object):
     #def __pow__(self,otro):
         
         
-    
+    ##Estas funciones jalan bien... creo ####
+        
+        
     def __and__(self,otro):
         
         return CIntervalo(self.re&otro.re, self.im&otro.im)
@@ -92,6 +96,8 @@ class CIntervalo(object):
     
         return CIntervalo(Intervalo(self.re.middle()),Intervalo(self.im.middle()))
     
+    
+    ##Funciones en construccion ######
     
     def __arg__(self):
     

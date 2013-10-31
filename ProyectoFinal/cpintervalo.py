@@ -1,8 +1,16 @@
 from intervalo import *
 
 class CPIntervalo(object):
+    '''
+    Clase auxiliar en la construccion de intervalos complejos en coordenadas
+    polares
+    '''
     
     def __init__(self, mod, arg=None):
+        
+        '''
+        Se define el intervalo complejo a partir de los modulos y las fases
+        '''
         
         if arg is None:
             
