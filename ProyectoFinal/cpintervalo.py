@@ -126,6 +126,20 @@ class CPIntervalo(object):
             
         return otro**self
         
+    #El seno y el coseno ya dan los valores bien por lo menos para intervalos
+    #degenerados, lo demas depende si estan bien definidas las operaciones
+    #en la clase intervalo        
         
-
-    
+    def cos(self):
+        
+        caux=self.mod*cos(self.arg)
+        
+        saux=self.mod*sin(self.arg)
+        
+        return (exp(CPIntervalo(-saux))*CPIntervalo(1.0, caux)+\
+        
+        exp(CPIntervalo(saux))*CPIntervalo(1.0,-caux))*0.5
+        
+    def sin(self):
+        
+        return cos(self-CPIntervalo(math.pi*0.5))
