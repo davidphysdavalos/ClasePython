@@ -1,5 +1,9 @@
 from intervalo import *
 
+import numpy as np
+
+math=np
+
 class CPIntervalo(object):
     '''
     Clase auxiliar en la construccion de intervalos complejos en coordenadas
@@ -23,10 +27,13 @@ class CPIntervalo(object):
         if not isinstance(arg,Intervalo):
             
             arg=Intervalo(arg)
+            
         
         
         self.mod = mod
-        self.arg = arg
+        #self.arg = math.mod(arg, 2*math.pi)
+        self.arg = arg        
+        
         
     def __repr__(self):
         return "CPIntervalo [{},{}]".format(self.mod,self.arg)
@@ -48,7 +55,7 @@ class CPIntervalo(object):
             
             otro=CPIntervalo(otro)
         
-        return CPIntervalo(self.mod*otro.mod,self.arg+self.arg)
+        return CPIntervalo(self.mod*otro.mod,self.arg+otro.arg)
     
     def __add__(self,otro):
         
@@ -65,7 +72,7 @@ class CPIntervalo(object):
     
     def __neg__(self):
         
-        return CPIntervalo(self.mod,self.arg+np.pi)
+        return CPIntervalo(self.mod,self.arg+math.pi)
     
     def __sub__(self,otro):
         
@@ -78,6 +85,46 @@ class CPIntervalo(object):
         valimag=self.mod*sin(self.arg)-otro.mod*sin(otro.arg)
         
         return CPIntervalo(sqrt(valreal**2+valimag**2),arctan(valimag/valreal))
+        
+    def __div__(self,otro):
+        
+        if not isinstance(otro, CPIntervalo):
+            
+            otro=CPIntervalo(otro)
+        
+        return CPIntervalo(self.mod/otro.mod,self.arg-otro.arg)
+        
+        
+    def log(self):
+        
+        modulo=sqrt(log(self.mod)**2+self.arg**2)
+        
+        argumento=arctan(self.arg/(log(self.mod)))
+        
+        return CPIntervalo(modulo, argumento)
+        
+        
+    def exp(self):
+        
+        return CPIntervalo(exp(self.mod*cos(self.arg)), self.mod*sin(self.arg))
+        
+    def __pow__(self, otro):
+        
+        if not isinstance(otro, CPIntervalo):
+            
+            otro=CPIntervalo(otro)
+        
+        aux=log(self)        
+        
+        return exp(otro*aux)
+        
+    def __rpow__(self, otro):
+        
+        if not isinstance(otro, CPIntervalo):
+            
+            otro=CPIntervalo(otro)
+            
+        return otro**self
         
         
 
