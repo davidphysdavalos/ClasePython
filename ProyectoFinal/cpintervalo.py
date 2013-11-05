@@ -24,6 +24,18 @@ class CPIntervalo(object):
             
             mod=Intervalo(mod)
             
+        if mod.lo<0 and mod.hi>=0:
+            
+            mod.lo=0
+            
+            print 'El radio no puede ser cero, el limite inferior se tomo como r=0'
+        
+        if mod.lo < 0 and mod.hi < 0:
+            
+            print 'El radio es completamente negativo'
+            
+            return None
+            
         if not isinstance(arg,Intervalo):
             
             arg=Intervalo(arg)
@@ -88,9 +100,32 @@ class CPIntervalo(object):
         return CPIntervalo(sqrt(valreal**2+valimag**2),arctan(valimag/valreal))
         
     def __contains__(self, otro):
+        
+        '''
+        Se inclu
+        '''
+        
+        if not isinstance(otro, CPIntervalo):
+            
+            otro=CPIntervalo(otro)
 
+        if otro.mod==0:
+            
+            return otro.mod & self.mod == otro.mod
+            
         return otro & self == otro 
-
+        
+        
+    def __eq__(self, otro):
+        """
+        funcion igualdad para intervalos 
+        """
+        if self.arg == otro.arg:
+            
+            return self.mod == otro.mod
+            
+        return False
+                
     
     def __neg__(self):
         
@@ -148,23 +183,27 @@ class CPIntervalo(object):
             
         return otro**self
         
+        
     def __and__(self, otro):
         
-        if not isinstance(otro,CPIntervalo):
+        if not isinstance(otro, CPIntervalo):
             otro = CPIntervalo(otro)
             
-        if (self.mod.lo > otro.mod.hi) | (self.mod.hi < otro.mod.lo):
-            return None
+        if self.mod & otro.mod== None:
             
-        if (self.arg.lo > otro.arg.hi) | (self.arg.hi < otro.arg.lo):
-            return None
-
-        else:
-            a = max( self.mod.lo, otro.mod.lo )
-            b = min( self.mod.hi, otro.mod.hi )
-            c = max( self.arg.lo, otro.arg.lo )
-            d = min( self.arg.hi, otro.arg.hi )
-        return CPIntervalo(Intervalo(a,b),Intervalo(c,d))
+            return False
+            
+        if self.arg & otro.arg == None:
+            
+            return False
+            
+        return CPIntervalo(self.mod & otro.mod, self.arg & otro.arg)
+        
+        
+        
+    def sqrt(self):
+        
+        return CPIntervalo(math.sqrt(self.mod), self.arg/2)
         
         
         
@@ -193,3 +232,22 @@ class CPIntervalo(object):
     def sin(self):
         
         return cos(self-CPIntervalo(math.pi*0.5))
+        
+#funciones elementales para intervalos, para que funcionen cosas tipo funcion(a)
+def exp(x):
+    try:
+        return x.exp()
+    except:
+        return math.exp(x)
+
+def log(x):
+    try:
+        return x.log()
+    except:
+        return math.log(x)
+
+def sqrt(x):
+    try:
+        return x.sqrt()
+    except:
+        return math.sqrt(x)
