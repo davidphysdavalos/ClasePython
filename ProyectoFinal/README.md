@@ -16,5 +16,8 @@ Cosas para hacer el dia 5 de noviembre de 2013:
 
 -Perfeccionar la rutina NewtonOperator e iterator, asi como corregir el error en el notebook.
 
+-Ademas seria bueno tratar de implementar correctamente la division entre cero, es decir, en lugar de que mande un hull que sea una union
+y se realicen operaciones por separado
+
 
 
