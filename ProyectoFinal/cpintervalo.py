@@ -56,6 +56,23 @@ class CPIntervalo(object):
             otro=CPIntervalo(otro)
         
         return CPIntervalo(self.mod*otro.mod,self.arg+otro.arg)
+        
+    def __rmul__(self, otro):
+        
+        return self*otro
+        
+    def __radd__(self, otro):
+        
+        return self+otro
+        
+    def __rsub__(self, otro):
+        
+        return self-otro
+        
+    def __rdiv__(self, otro):
+        
+        return self/otro
+        
     
     def __add__(self,otro):
         
@@ -69,6 +86,11 @@ class CPIntervalo(object):
         valimag=self.mod*sin(self.arg)+otro.mod*sin(otro.arg)
         
         return CPIntervalo(sqrt(valreal**2+valimag**2),arctan(valimag/valreal))
+        
+    def __contains__(self, otro):
+
+        return otro & self == otro 
+
     
     def __neg__(self):
         
@@ -125,6 +147,34 @@ class CPIntervalo(object):
             otro=CPIntervalo(otro)
             
         return otro**self
+        
+    def __and__(self, otro):
+        
+        if not isinstance(otro,CPIntervalo):
+            otro = CPIntervalo(otro)
+            
+        if (self.mod.lo > otro.mod.hi) | (self.mod.hi < otro.mod.lo):
+            return None
+            
+        if (self.arg.lo > otro.arg.hi) | (self.arg.hi < otro.arg.lo):
+            return None
+
+        else:
+            a = max( self.mod.lo, otro.mod.lo )
+            b = min( self.mod.hi, otro.mod.hi )
+            c = max( self.arg.lo, otro.arg.lo )
+            d = min( self.arg.hi, otro.arg.hi )
+        return CPIntervalo(Intervalo(a,b),Intervalo(c,d))
+        
+        
+        
+    def middle(self):
+        
+        r=(self.mod.lo+self.mod.hi)*0.5
+        
+        theta=(self.arg.lo+self.arg.hi)*0.5
+        
+        return r*math.cos(theta)+r*math.sin(theta)*1j 
         
     #El seno y el coseno ya dan los valores bien por lo menos para intervalos
     #degenerados, lo demas depende si estan bien definidas las operaciones

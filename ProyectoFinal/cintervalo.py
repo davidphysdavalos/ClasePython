@@ -45,6 +45,10 @@ class CIntervalo(object):
     
     def __add__(self,otro):
         
+        if not isinstance(otro, CIntervalo):
+            
+            otro=CIntervalo
+        
         return CIntervalo(self.re+otro.re,self.im+otro.im)
     
     def abs(self):
@@ -57,6 +61,10 @@ class CIntervalo(object):
     
     def __div__(self,otro):
         
+        if not isinstance(otro, CIntervalo):
+            
+            otro=CIntervalo(otro)
+        
         otroc= otro.conjugate()
         
         ab=abs(otro)
@@ -68,10 +76,6 @@ class CIntervalo(object):
         return (self*otroc)*cociente
     
     def __rdiv__(self,otro):
-        
-        if not isinstance(otro,CIntervalo):
-            
-            otro=CIntervalo(otro)
             
         return self/otro
     
