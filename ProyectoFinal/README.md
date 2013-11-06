@@ -19,5 +19,7 @@ Cosas para hacer el dia 5-7 de noviembre de 2013:
 -Ademas seria bueno tratar de implementar correctamente la division entre cero, es decir, en lugar de que mande un hull que sea una union
 y se realicen operaciones por separado.--- Sigue en pie la pregunta si esto realmente afecta.
 
+-Corregir el problema de los radios negativos.
+
 
 

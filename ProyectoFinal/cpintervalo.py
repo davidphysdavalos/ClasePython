@@ -34,8 +34,6 @@ class CPIntervalo(object):
             
             print 'El radio es completamente negativo'
             
-            return None
-            
         if not isinstance(arg,Intervalo):
             
             arg=Intervalo(arg)
@@ -191,11 +189,11 @@ class CPIntervalo(object):
             
         if self.mod & otro.mod== None:
             
-            return False
+            return None
             
         if self.arg & otro.arg == None:
             
-            return False
+            return None
             
         return CPIntervalo(self.mod & otro.mod, self.arg & otro.arg)
         
