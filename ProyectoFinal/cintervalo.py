@@ -41,13 +41,21 @@ class CIntervalo(object):
             
             otro=CIntervalo(otro)
         
-        return CIntervalo(self.re*otro.re-self.im*otro.im,self.re*otro.im+otro.re)
+        return CIntervalo(self.re*otro.re-self.im*otro.im, self.im*otro.re+otro.im* self.re)
+    
+    def __rmul__(self, otro):
+        
+        return self*otro
+        
+    def __radd__(self, otro):
+        
+        return self + otro
     
     def __add__(self,otro):
         
         if not isinstance(otro, CIntervalo):
             
-            otro=CIntervalo
+            otro=CIntervalo(otro)
         
         return CIntervalo(self.re+otro.re,self.im+otro.im)
     
@@ -55,9 +63,8 @@ class CIntervalo(object):
      
         #return CIntervalo(sqrt(self.re**2+self.im**2))
         
-        aux=sqrt(self.re**2+self.im**2)
+        return math.sqrt(self.re.abs()**2+self.im.abs()**2)
         
-        return aux.abs()
     
     def __div__(self,otro):
         
@@ -67,19 +74,34 @@ class CIntervalo(object):
         
         otroc= otro.conjugate()
         
-        ab=abs(otro)
+        ab=otro.abs()
         
         cociente=ab**(-2.0)
-        
-        cociente=cociente.abs()
         
         return (self*otroc)*cociente
     
     def __rdiv__(self,otro):
             
         return self/otro
-    
-    
+        
+    def __neg__(self):
+        
+        return CIntervalo(-self.re, -self.im)
+        
+    def __sub__(self, otro):
+        
+        if not isinstance(otro, CIntervalo):
+            
+            otro=CIntervalo
+        
+        return CIntervalo(self.re-otro.re, self.im-otro.im)
+        
+    def exp(self):
+        
+        aux=CIntervalo(exp(self.re))        
+        
+        return aux*CIntervalo(cos(self.im), sin(self.im))
+        
     #def __pow__(self,otro):
         
         
@@ -88,7 +110,25 @@ class CIntervalo(object):
         
     def __and__(self,otro):
         
-        return CIntervalo(self.re&otro.re, self.im&otro.im)
+        if self.re & otro.re==None:
+            
+            return None
+            
+        if self.im & otro.im==None:
+            
+            return None
+        
+        return CIntervalo(self.re & otro.re, self.im & otro.im)
+        
+    def __contains__(self, otro):
+        
+
+        if not isinstance(otro, CIntervalo):
+            
+            otro=CIntervalo(otro)
+
+            
+        return otro & self == otro 
     
     
     def conjugate(self):
@@ -98,14 +138,14 @@ class CIntervalo(object):
 
     def middle(self):
     
-        return CIntervalo(Intervalo(self.re.middle()),Intervalo(self.im.middle()))
+        return CIntervalo(self.re.middle(),self.im.middle())
     
     
     ##Funciones en construccion ######
     
     def __arg__(self):
     
-        coc=self.im/self.re
+        return CIntervalo(0, arctan(self.im/self.re))
         
         
     

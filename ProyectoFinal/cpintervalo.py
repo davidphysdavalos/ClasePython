@@ -34,6 +34,8 @@ class CPIntervalo(object):
             
             print 'El radio es completamente negativo'
             
+            #return None
+            
         if not isinstance(arg,Intervalo):
             
             arg=Intervalo(arg)
@@ -207,11 +209,8 @@ class CPIntervalo(object):
         
     def middle(self):
         
-        r=(self.mod.lo+self.mod.hi)*0.5
         
-        theta=(self.arg.lo+self.arg.hi)*0.5
-        
-        return r*math.cos(theta)+r*math.sin(theta)*1j 
+        return self.mod.middle()+ self.arg.middle()*1j
         
     #El seno y el coseno ya dan los valores bien por lo menos para intervalos
     #degenerados, lo demas depende si estan bien definidas las operaciones

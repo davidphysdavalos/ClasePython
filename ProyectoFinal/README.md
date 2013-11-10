@@ -9,6 +9,9 @@ Bitacora:
 
 -Se construyo el metodo de newton compatible con estas clases.
 
+Notas: Se presenta un funcionamiento extraño del metodo de Newton en coordenadas
+polares, por lo cual se estan perfeccionando los intervalos en coordenadas cartesianas, sin embargo ahora se señala que el error puede estar en iterator
+
 
 Cosas para hacer el dia 5-7 de noviembre de 2013:
 
