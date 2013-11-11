@@ -220,7 +220,7 @@ class Intervalo(object):
                 recip = Intervalo(1.0/otro.hi, inf)
                 return self*recip
             else:
-                return Intervalo.hull(self*Intervalo(-inf,1.0/otro.lo), self*Intervalo(1.0/otro.hi, inf))
+                return [self*Intervalo(-inf,1.0/otro.lo), self*Intervalo(1.0/otro.hi, inf)]
     
     # división reversa
     def __rdiv__(self, otro):

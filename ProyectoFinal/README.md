@@ -12,8 +12,13 @@ Bitacora:
 Notas: Se presenta un funcionamiento extraño del metodo de Newton en coordenadas
 polares, por lo cual se estan perfeccionando los intervalos en coordenadas cartesianas, sin embargo ahora se señala que el error puede estar en iterator
 
+-Intervalos cartesianos ahora tienen un mejor funcionamiento, sin embargo se observa que cuando no se da un intervalo
+simetrico en los reales, el metodo de Newton no colapsa el intervalo.
 
-Cosas para hacer el dia 5-7 de noviembre de 2013:
+-Ademas los intervalos no colapsan cuando se tienen funciones con muchas raices, sera cosa de generalizar Newton.
+
+
+Cosas para hacer el dia 5-7 de noviembre de 2013 --Intervalos en polares--:
 
 -modificar la funcion contains de cpintervalo--- Hecho.
 
@@ -23,6 +28,10 @@ Cosas para hacer el dia 5-7 de noviembre de 2013:
 y se realicen operaciones por separado.--- Sigue en pie la pregunta si esto realmente afecta.
 
 -Corregir el problema de los radios negativos.
+
+Cosas para hacer el dia 11-13 de noviembre de 2013 --Intervalos en cartesianas--:
+
+-Implementar pow en intervalos cartesianos, me ha dado weba.
 
 
 

@@ -63,7 +63,7 @@ class CIntervalo(object):
      
         #return CIntervalo(sqrt(self.re**2+self.im**2))
         
-        return math.sqrt(self.re.abs()**2+self.im.abs()**2)
+        return sqrt(self.re**2+self.im**2)
         
     
     def __div__(self,otro):
@@ -71,14 +71,16 @@ class CIntervalo(object):
         if not isinstance(otro, CIntervalo):
             
             otro=CIntervalo(otro)
+            
+        otroc=otro.conjugate()
         
-        otroc= otro.conjugate()
+        denominator=otroc.abs()**2
         
-        ab=otro.abs()
+        numeradorReal= self.re*otro.re+self.im*otro.im
         
-        cociente=ab**(-2.0)
+        numeradorcomplex = self.im*otro.re-otro.im*self.re
         
-        return (self*otroc)*cociente
+        return CIntervalo(numeradorReal/denominator, numeradorcomplex/denominator)
     
     def __rdiv__(self,otro):
             
