@@ -220,7 +220,7 @@ class Intervalo(object):
                 recip = Intervalo(1.0/otro.hi, inf)
                 return self*recip
             else:
-                return [self*Intervalo(-inf,1.0/otro.lo), self*Intervalo(1.0/otro.hi, inf)]
+                return Intervalo.hull(self*Intervalo(-inf,1.0/otro.lo), self*Intervalo(1.0/otro.hi, inf))
     
     # división reversa
     def __rdiv__(self, otro):
@@ -251,6 +251,13 @@ class Intervalo(object):
         else:
             # cualquier otro caso el exponente se toma como real
             return self.pow_real(alpha)
+            
+    def __rpow__(self, otro):
+        
+        if not isinstance(otro, Intervalo):
+            otro=Intervalo(otro)
+            
+        return otro**self
 
 
     def pow_int(self, n):
@@ -686,5 +693,29 @@ def SymmetricInterval(a,b):
     lo=a-b
     
     return Intervalo(lo,hi)
+    
+def mod(self, value):
+        
+        '''
+        Funcion de prueba para la operacion modulo, calese para que observe lo que esta hace
+        '''
+        
+        hi, lo =math.mod(self.hi, value), math.mod(self.lo, value)
+        
+        if self.hi==hi and self.lo==lo:
+            
+            return self
+            
+        if self.hi==self.lo:
+            
+            return Intervalo(hi)
+            
+        if self.lo==lo and self.hi != hi:
+            
+            return Intervalo(0, value)
+            
+        if self.hi==hi and self.lo!=lo:
+            
+            return Intervalo(0, value)
 
 
