@@ -36,7 +36,7 @@ Cosas para hacer el dia 11-13 de noviembre de 2013 --Intervalos en cartesianas--
 
 ------Extras------
 
-Ya se pudieron hacer fractales de Newton, el cual a mi gusto es un punto importante del uso del metodo para la busqueda de raices complejas
+Ya se pudieron hacer fractales de Newton, el cual a mi gusto es un punto importante del uso del metodo para la busqueda de raices complejas, ademas ya salieron los infinitos
 
 
 
