@@ -31,7 +31,12 @@ y se realicen operaciones por separado.--- Sigue en pie la pregunta si esto real
 
 Cosas para hacer el dia 11-13 de noviembre de 2013 --Intervalos en cartesianas--:
 
--Implementar pow en intervalos cartesianos, me ha dado weba.
+-Implementar pow en intervalos cartesianos, me ha dado weba --hecho, con el claro problema del error numerico del ArcTan y exp(log)
+
+
+------Extras------
+
+Ya se pudieron hacer fractales de Newton, el cual a mi gusto es un punto importante del uso del metodo para la busqueda de raices complejas
 
 
 
