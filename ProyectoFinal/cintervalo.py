@@ -71,10 +71,8 @@ class CIntervalo(object):
         if not isinstance(otro, CIntervalo):
             
             otro=CIntervalo(otro)
-            
-        otroc=otro.conjugate()
         
-        denominator=otroc.abs()**2
+        denominator=otro.abs()**2
         
         numeradorReal= self.re*otro.re+self.im*otro.im
         
@@ -94,9 +92,13 @@ class CIntervalo(object):
         
         if not isinstance(otro, CIntervalo):
             
-            otro=CIntervalo
+            otro=CIntervalo(otro)
         
         return CIntervalo(self.re-otro.re, self.im-otro.im)
+        
+    def __rsub__(self, otro):
+        
+        return self-otro
         
     def exp(self):
         
@@ -104,7 +106,27 @@ class CIntervalo(object):
         
         return aux*CIntervalo(cos(self.im), sin(self.im))
         
-    #def __pow__(self,otro):
+    def log(self):
+        
+        return CIntervalo(log(self.abs()), self.arg())
+        
+    def __pow__(self,otro):
+        
+        auxlog=log(self)
+        
+        aux= otro*auxlog
+        
+        a=exp(aux)
+        
+        return a
+        
+    def __rpow__(self, otro):
+        
+        if not isinstance(otro, CIntervalo):
+            
+            otro=CIntervalo(otro)
+            
+        return otro**self
         
         
     ##Estas funciones jalan bien... creo ####
@@ -145,9 +167,10 @@ class CIntervalo(object):
     
     ##Funciones en construccion ######
     
-    def __arg__(self):
+    def arg(self):
     
-        return CIntervalo(0, arctan(self.im/self.re))
+    
+        return arctan(self.im/self.re)
         
         
     
