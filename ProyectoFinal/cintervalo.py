@@ -172,6 +172,20 @@ class CIntervalo(object):
     
         return arctan(self.im/self.re)
         
+    ### Trigonometric Functions
+        
+    def sin(self):
+        
+        return CIntervalo(cosh(self.im)*sin(self.re), cos(self.re)*sinh(self.im))
+        
+    def cos(self):
+        
+        return sin(self+math.pi*0.5)
+        
+    def tan(self):
+        
+        return sin(self)/cos(self)
+        
         
     
     
