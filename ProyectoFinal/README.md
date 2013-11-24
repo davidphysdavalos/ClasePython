@@ -12,31 +12,38 @@ Bitacora:
 Notas: Se presenta un funcionamiento extraño del metodo de Newton en coordenadas
 polares, por lo cual se estan perfeccionando los intervalos en coordenadas cartesianas, sin embargo ahora se señala que el error puede estar en iterator
 
--Intervalos cartesianos ahora tienen un mejor funcionamiento, sin embargo se observa que cuando no se da un intervalo
+* Intervalos cartesianos ahora tienen un mejor funcionamiento, sin embargo se observa que cuando no se da un intervalo
 simetrico en los reales, el metodo de Newton no colapsa el intervalo.
 
--Ademas los intervalos no colapsan cuando se tienen funciones con muchas raices, sera cosa de generalizar Newton.
+* Ademas los intervalos no colapsan cuando se tienen funciones con muchas raices, sera cosa de generalizar Newton.
 
 
 Cosas para hacer el dia 5-7 de noviembre de 2013 --Intervalos en polares--:
 
--modificar la funcion contains de cpintervalo--- Hecho.
+* modificar la funcion contains de cpintervalo--- Hecho.
 
--Perfeccionar la rutina NewtonOperator e iterator, asi como corregir el error en el notebook-- Se corrigio el error, solo falta hacer compatible todo para raices en la parte inferior del plano complejo.
+* Perfeccionar la rutina NewtonOperator e iterator, asi como corregir el error en el notebook-- Se corrigio el error, solo falta hacer compatible todo para raices en la parte inferior del plano complejo.
 
--Ademas seria bueno tratar de implementar correctamente la division entre cero, es decir, en lugar de que mande un hull que sea una union
+* Ademas seria bueno tratar de implementar correctamente la division entre cero, es decir, en lugar de que mande un hull que sea una union
 y se realicen operaciones por separado.--- Sigue en pie la pregunta si esto realmente afecta.
 
--Corregir el problema de los radios negativos.
+* Corregir el problema de los radios negativos.
 
 Cosas para hacer el dia 11-13 de noviembre de 2013 --Intervalos en cartesianas--:
 
--Implementar pow en intervalos cartesianos, me ha dado weba --hecho, con el claro problema del error numerico del ArcTan y exp(log)
+*Implementar pow en intervalos cartesianos, me ha dado weba --hecho, con el claro problema del error numerico del ArcTan y exp(log)
 
 
 ------Extras------
 
 Ya se pudieron hacer fractales de Newton, el cual a mi gusto es un punto importante del uso del metodo para la busqueda de raices complejas, ademas ya salieron los infinitos
+
+De la Clase Intervalo
+------------------
+
+ modificaciones:
+
+* Se añadio la operacion modulo para poder definir bien el angulo en CPIntervalo
 
 
 
