@@ -1,5 +1,7 @@
 from intervalo import *
 
+from complex_interval_tools import *
+
 class CIntervalo(object):
     '''
     Clase auxiliar en la construccion de intervalos complejos
@@ -110,13 +112,31 @@ class CIntervalo(object):
         
         return CIntervalo(log(self.abs()), self.arg())
         
-    def __pow__(self,otro):
+    def __pow__(self, otro):
         
-        auxlog=log(self)
+        if not isinstance(otro, CIntervalo):
+            
+            otro=CIntervalo(otro)
         
-        aux= otro*auxlog
+        newself, otro= cart2polar(self), cart2polar(otro)
         
-        a=exp(aux)
+        result=newself**otro
+        
+        result=polar2cart(result)
+        
+        return result
+        
+        #auxlog=log(self)
+        
+        #if auxlog.re.lo==-float('inf'):
+            
+         #   print 'El intervalo contiene alguna potencia del cero'
+            
+          #  return None
+        
+        #aux= otro*auxlog
+        
+        #a=exp(aux)
         
         return a
         
@@ -127,6 +147,10 @@ class CIntervalo(object):
             otro=CIntervalo(otro)
             
         return otro**self
+        
+    def sqrt(self):
+        
+        return self**(0.5)
         
         
     ##Estas funciones jalan bien... creo ####
@@ -186,6 +210,77 @@ class CIntervalo(object):
         
         return sin(self)/cos(self)
         
+    # Arcotangente pendiente
+        
+    #def arctan(self):
+        
+        
+#funciones elementales para intervalos complejos, para que funcionen cosas tipo funcion(a)
+def exp(x):
+    try:
+        return x.exp()
+    except:
+        return math.exp(x)
+
+def log(x):
+    try:
+        return x.log()
+    except:
+        return math.log(x)
+
+def sqrt(x):
+    try:
+        return x.sqrt()
+    except:
+        return math.sqrt(x)
+
+#def arctan(x):
+ #   try:
+  #      return x.arctan()
+   # except:
+    #    return math.arctan(x)
+
+def cos(x):
+    try:
+        return x.cos()
+    except:
+        return math.cos(x)
+
+def sin(x):
+    try:
+        return x.sin()
+    except:
+        return math.sin(x)
+
+def tan(x):
+    try:
+        return x.tan()
+    except:
+        return math.tan(x)
+        
+def cosh(x):
+    try:
+        return x.cosh()
+    except:
+        return math.cosh(x)
+
+def sinh(x):
+    try:
+        return x.sinh()
+    except:
+        return math.sinh(x)
+
+def tanh(x):
+    try:
+        return x.tanh()
+    except:
+        return math.tanh(x)
+        
+def abs(x):
+    try:
+        return x.abs()
+    except:
+        return abs(x)
         
     
     
