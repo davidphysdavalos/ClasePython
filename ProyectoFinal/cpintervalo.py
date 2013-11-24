@@ -16,13 +16,30 @@ class CPIntervalo(object):
         Se define el intervalo complejo a partir de los modulos y las fases
         '''
         
-        if arg is None:
-            
-            arg = Intervalo(0)
-            
         if not isinstance(mod,Intervalo):
             
             mod=Intervalo(mod)
+            
+        
+        if arg is None:
+            
+            if mod.lo<0 and mod.hi<=0:
+            
+                arg = Intervalo(math.pi)
+                
+                
+            if mod.lo<0 and mod.hi>=0:
+                
+                arg=Intervalo(0.0, math.pi)
+                
+            
+            if mod.lo==0 and mod.hi==0:
+                
+                arg=Intervalo(0.0)
+                
+            mod=Intervalo(abs(mod.lo), abs(mod.hi))
+            
+        
             
         if mod.lo<0 and mod.hi>=0:
             
@@ -34,7 +51,7 @@ class CPIntervalo(object):
             
             print 'El radio es completamente negativo'
             
-            #return None
+            return None
             
         if not isinstance(arg,Intervalo):
             
@@ -229,6 +246,10 @@ class CPIntervalo(object):
     def sin(self):
         
         return cos(self-CPIntervalo(math.pi*0.5))
+    
+    def tan(self):
+        
+        return sin(self)/cos(self)
         
 #funciones elementales para intervalos, para que funcionen cosas tipo funcion(a)
 def exp(x):
@@ -248,3 +269,4 @@ def sqrt(x):
         return x.sqrt()
     except:
         return math.sqrt(x)
+        
