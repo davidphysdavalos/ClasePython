@@ -28,16 +28,16 @@ class CPIntervalo(object):
                 arg = Intervalo(math.pi)
                 
                 
-            if mod.lo<0 and mod.hi>=0:
+            if mod.lo<0 and mod.hi>0:
                 
                 arg=Intervalo(0.0, math.pi)
                 
             
-            if mod.lo==0 and mod.hi==0:
+            if mod.lo>=0 and mod.hi>=0:
                 
                 arg=Intervalo(0.0)
                 
-            mod=Intervalo(abs(mod.lo), abs(mod.hi))
+            mod=Intervalo(math.sign(mod.lo)*mod.lo, math.sign(mod.hi)*mod.hi)
             
         
             
@@ -57,11 +57,13 @@ class CPIntervalo(object):
             
             arg=Intervalo(arg)
             
+        arg=module(arg, 2*math.pi)
+            
         
         
         self.mod = mod
         #self.arg = math.mod(arg, 2*math.pi)
-        self.arg = arg        
+        self.arg = arg
         
         
     def __repr__(self):
