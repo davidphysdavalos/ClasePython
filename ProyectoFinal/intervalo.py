@@ -359,7 +359,7 @@ class Intervalo(object):
         Cacula la anchura
         """
 
-        return abs(self.hi-self.lo)
+        return self.hi-self.lo
         
     def abs(self):
         
@@ -724,7 +724,7 @@ def SymmetricInterval(a,b):
     
     return Intervalo(lo,hi)
     
-def mod(self, value):
+def module(self, value):
         
         '''
         Funcion de prueba para la operacion modulo, calese para que observe lo que esta hace
@@ -747,5 +747,13 @@ def mod(self, value):
         if self.hi==hi and self.lo!=lo:
             
             return Intervalo(0, value)
+            
+        if hi!=self.hi and lo!=self.lo:
+            
+            if self.width()<value and hi>lo:
+                
+                return Intervalo(lo, hi)
+                
+            return Intervalo(0.0, value)
 
 
