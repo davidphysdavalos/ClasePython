@@ -544,6 +544,18 @@ class Intervalo(object):
     def arctan(self):
         return Intervalo(math.arctan(self.lo),math.arctan(self.hi))
         
+    def sinh(self):
+        
+        return (exp(self)-exp(self))*0.5
+        
+    def cosh(self):
+        
+        return (exp(self)+exp(self))*0.5
+        
+    def tanh(self):
+        
+        return sinh(self)/cosh(self)
+        
 #----------
 #funciones elementales para intervalos, para que funcionen cosas tipo funcion(a)
 def exp(x):
@@ -587,6 +599,24 @@ def tan(x):
         return x.tan()
     except:
         return math.tan(x)
+        
+def cosh(x):
+    try:
+        return x.cosh()
+    except:
+        return math.cosh(x)
+
+def sinh(x):
+    try:
+        return x.sinh()
+    except:
+        return math.sinh(x)
+
+def tanh(x):
+    try:
+        return x.tanh()
+    except:
+        return math.tanh(x)
 
 # ----    
 def chop(X):
