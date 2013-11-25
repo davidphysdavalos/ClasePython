@@ -60,7 +60,7 @@ class CPIntervalo(object):
             
             arg=Intervalo(arg)
             
-        arg=module(arg, 2*math.pi)
+        #arg=module(arg, 2*math.pi)
             
         
         

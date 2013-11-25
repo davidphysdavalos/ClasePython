@@ -34,15 +34,15 @@ class CIntervalo(object):
         return "CIntervalo [{},{}]".format(self.re,self.im)
     
     def __str__(self):
-        return "[{},{}]".format(self.re,self.im)
+        return "[{},{}]_c".format(self.re,self.im)
 
     def _repr_html_(self):
-        reprn = "[{}, {}]".format(self.re, self.im)
+        reprn = "[{}, {}]<sub>c</sub> ".format(self.re, self.im)
         reprn = reprn.replace("inf", r"&infin;")
         return reprn
     
     def _repr_latex_(self):
-        return "$[{}, {}]$".format(self.re, self.im)
+        return "$[{}, {}]_c$".format(self.re, self.im)
     
     def __mul__(self,otro):
         
@@ -237,6 +237,10 @@ class CIntervalo(object):
     ##Funciones en construccion ######
     
     def arg(self):
+        
+        '''
+        Regresa el valor principal del argumento
+        '''
         
         if self==0:
             
