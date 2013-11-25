@@ -192,6 +192,32 @@ class CIntervalo(object):
     ##Funciones en construccion ######
     
     def arg(self):
+        
+        if self.re>0:
+            
+            return arctan(self.im/self.re)
+        
+        if self.im>0:
+            
+            return math.pi/2-arctan(self.re/self.im)
+            
+        if self.im<0:
+            
+            return -math.pi-arctan(self.re/self.im)
+            
+        if self.re<0 and self.im>=0:
+            
+            return math.pi+arctan(self.im/self.re)
+                
+        if self.re<0 and self.im<0:
+            
+            return -math.pi +arctan(self.im/self.re)
+            
+        if self==0:
+            
+            print 'indefinido'
+            
+            return None
     
     
         return arctan(self.im/self.re)
