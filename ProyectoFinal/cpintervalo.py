@@ -13,8 +13,11 @@ class CPIntervalo(object):
     def __init__(self, mod, arg=None):
         
         '''
-        Se define el intervalo complejo a partir de los modulos y las fases
+        Se define el intervalo complejo a partir de los modulos y las fases, la primera
+        entrada corresponde al intervalo del modulo y el segundo al del argumento
         '''
+        
+        #Si la entrada del argumento es nula el intervalo se toma como real
         
         if not isinstance(mod,Intervalo):
             
@@ -100,9 +103,13 @@ class CPIntervalo(object):
         
         return self-otro
         
-    def __rdiv__(self, otro):
+    def __rdiv__(self,otro):
         
-        return self/otro
+        if not isinstance(otro, CPIntervalo):
+            
+            otro=CPIntervalo(otro)
+            
+        return CPIntervalo.__div__(otro, self)
         
     
     def __add__(self,otro):
@@ -170,14 +177,22 @@ class CPIntervalo(object):
         
         return CPIntervalo(self.mod/otro.mod,self.arg-otro.arg)
         
+    def reciprocal(self):
+        
+        if 0 in self:
+            #si el intervalo contiene el cero debe de aparecer un error
+            raise ZeroDivisionError
+        else:
+            return CPIntervalo(1.0/self.mod, -self.arg)
+        
         
     def log(self):
         
-        modulo=sqrt(log(self.mod)**2+self.arg**2)
+        modul=sqrt(log(self.mod)**2+self.arg**2)
         
         argumento=arctan(self.arg/(log(self.mod)))
         
-        return CPIntervalo(modulo, argumento)
+        return CPIntervalo(modul, argumento)
         
         
     def exp(self):

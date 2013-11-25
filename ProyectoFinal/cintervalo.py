@@ -8,6 +8,13 @@ class CIntervalo(object):
     '''
     def __init__(self, re, im=None):
         
+        '''
+        La primera entrada de este objeto es el intervalo correspondiente a la parte real
+        y la segunda el intervalo de la parte compleja
+        '''
+        
+        #Si no se da la parte imaginaria el Intervalo se toma como real
+        
         if im is None:
             im = Intervalo(0)
             
@@ -62,6 +69,10 @@ class CIntervalo(object):
         return CIntervalo(self.re+otro.re,self.im+otro.im)
     
     def abs(self):
+        
+        '''
+        No se define el Absoluto en el sentido de intervalos, sino en el sentido de los numeros complejos
+        '''
      
         #return CIntervalo(sqrt(self.re**2+self.im**2))
         
@@ -81,10 +92,31 @@ class CIntervalo(object):
         numeradorcomplex = self.im*otro.re-otro.im*self.re
         
         return CIntervalo(numeradorReal/denominator, numeradorcomplex/denominator)
+        
+        
     
     def __rdiv__(self,otro):
+        
+        if not isinstance(otro, CIntervalo):
             
-        return self/otro
+            otro=CIntervalo(otro)
+            
+        return CIntervalo.__div__(otro, self)
+        
+    def __eq__(self, otro):
+        """
+        funcion igualdad para intervalos 
+        """
+        if self.re == otro.re:
+            
+            return self.im == otro.im
+            
+        return False
+        
+    def reciprocal(self):
+        
+        return 1.0/self
+        
         
     def __neg__(self):
         
@@ -113,6 +145,10 @@ class CIntervalo(object):
         return CIntervalo(log(self.abs()), self.arg())
         
     def __pow__(self, otro):
+        
+        '''
+        Esta operacion se realiza en la clase de intervalos en coordenadas polares
+        '''
         
         if not isinstance(otro, CIntervalo):
             
@@ -307,6 +343,12 @@ def abs(x):
         return x.abs()
     except:
         return abs(x)
+        
+def arg(x):
+    try:
+        return x.arg()
+    except:
+        return arg(x)
         
     
     
