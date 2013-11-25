@@ -106,6 +106,10 @@ class Intervalo(object):
         función igualdad para intervalos 
 
         """
+        
+        if not isinstance(otro, Intervalo):
+            
+            otro=Intervalo(otro)
         try:
             if self.lo == otro.lo and self.hi == otro.hi:
                 return True

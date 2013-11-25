@@ -107,6 +107,11 @@ class CIntervalo(object):
         """
         funcion igualdad para intervalos 
         """
+        
+        if not isinstance(otro, CIntervalo):
+            
+            otro=CIntervalo(otro)
+            
         if self.re == otro.re:
             
             return self.im == otro.im
@@ -114,6 +119,10 @@ class CIntervalo(object):
         return False
         
     def reciprocal(self):
+        
+        if 0 in self:
+            #si el intervalo contiene el cero debe de aparecer un error
+            raise ZeroDivisionError
         
         return 1.0/self
         
@@ -229,34 +238,13 @@ class CIntervalo(object):
     
     def arg(self):
         
-        if self.re>0:
-            
-            return arctan(self.im/self.re)
-        
-        if self.im>0:
-            
-            return math.pi/2-arctan(self.re/self.im)
-            
-        if self.im<0:
-            
-            return -math.pi-arctan(self.re/self.im)
-            
-        if self.re<0 and self.im>=0:
-            
-            return math.pi+arctan(self.im/self.re)
-                
-        if self.re<0 and self.im<0:
-            
-            return -math.pi +arctan(self.im/self.re)
-            
         if self==0:
             
             print 'indefinido'
             
             return None
-    
-    
-        return arctan(self.im/self.re)
+            
+        return 2.0*arctan(self.im/(self.abs()+self.re))
         
     ### Trigonometric Functions
         
@@ -338,17 +326,11 @@ def tanh(x):
     except:
         return math.tanh(x)
         
-def abs(x):
-    try:
-        return x.abs()
-    except:
-        return abs(x)
-        
 def arg(x):
     try:
         return x.arg()
     except:
-        return arg(x)
+        return CIntervalo.arg(x)
         
     
     

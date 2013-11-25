@@ -20,6 +20,6 @@ def cart2polar(x):
         
         return None
     
-    return cpi.CPIntervalo(ci.abs(x), x.arg())
+    return cpi.CPIntervalo(x.abs(), x.arg())
     
     
