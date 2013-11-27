@@ -80,8 +80,7 @@ def intervaliterator(f,fp,x,n):
         
         if x==a:
             
-            print 'El metodo no va a converger, el operador de Newton \
-            hace mas grande el intervalo inicial'
+            print 'El metodo no va a converger, el operador de Newton hace mas grande el intervalo inicial'
             
             return None
             

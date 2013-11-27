@@ -252,7 +252,7 @@ class CPIntervalo(object):
     def middle(self):
         
         
-        return self.mod.middle()+ self.arg.middle()*1j
+        return CPIntervalo(self.mod.middle(), self.arg.middle())
         
     #El seno y el coseno ya dan los valores bien por lo menos para intervalos
     #degenerados, lo demas depende si estan bien definidas las operaciones
