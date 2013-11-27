@@ -23,17 +23,26 @@ def cart2polar(x):
     
     return cpi.CPIntervalo(x.abs(), x.arg())
     
-def modulo(x):
+def modulo(x, value):
     
     '''
     Se llama a la libreria Intervalo y se aplica module al argumento del CPIntervalo
     '''
     
+    if isinstance(x, ci.CIntervalo):
+        
+        print 'Este comando funciona solo para CPIntervalo'
+        
+        return None
+    
     if not isinstance(x, cpi.CPIntervalo):
         
         x=cpi.CPIntervalo(x)
         
-    return cpi.CPIntervalo(x.mod, ri.module(x.arg))
+    xmod= x.mod
+    xarg=x.arg
+    
+    return cpi.CPIntervalo(xmod, ri.module(xarg, value))
     
     
     ##################Metodo de Newton para intervalos####################
@@ -41,7 +50,7 @@ def modulo(x):
     
 def NewtonOperator(f,fprime,x):
     '''
-    NewtonOperator(f,fprime,x)
+    NewtonOperator(f,fprime,x), auxiliar en el metodo de Newton para intervalos.
     '''
     m=x.middle()
     
@@ -71,9 +80,12 @@ def intervaliterator(f,fp,x,n):
         
         if x==a:
             
-            print 'El metodo no va a converger, el operador de Newton hace mas grande el intervalo inicial'
+            print 'El metodo no va a converger, el operador de Newton \
+            hace mas grande el intervalo inicial'
             
             return None
+            
+        a=x
         
     return x
     

@@ -73,15 +73,15 @@ class CPIntervalo(object):
         return "CPIntervalo [{},{}]".format(self.mod,self.arg)
     
     def __str__(self):
-        return "[{},{}]".format(self.mod,self.arg)
+        return "[{},{}]_p".format(self.mod,self.arg)
 
     def _repr_html_(self):
-        reprn = "[{}, {}]".format(self.mod, self.arg)
+        reprn = "[{}, {}]<sub>p</sub>".format(self.mod, self.arg)
         reprn = reprn.replace("inf", r"&infin;")
         return reprn
     
     def _repr_latex_(self):
-        return "$[{}, {}]$".format(self.mod, self.arg)
+        return "$[{}, {}]_p$".format(self.mod, self.arg)
     
     def __mul__(self,otro):
         
@@ -140,6 +140,14 @@ class CPIntervalo(object):
             return otro.mod & self.mod == otro.mod
             
         return otro & self == otro 
+        
+    def conjugate(self):
+        
+        '''
+        Calcula el complejo conjugado
+        '''
+        
+        return CPIntervalo(self.mod, -self.arg)
         
         
     def __eq__(self, otro):

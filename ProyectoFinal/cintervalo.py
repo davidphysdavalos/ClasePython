@@ -145,9 +145,9 @@ class CIntervalo(object):
         
     def exp(self):
         
-        aux=CIntervalo(exp(self.re))        
+        aux=exp(self.re)  
         
-        return aux*CIntervalo(cos(self.im), sin(self.im))
+        return CIntervalo(aux*cos(self.im), aux*sin(self.im))
         
     def log(self):
         
